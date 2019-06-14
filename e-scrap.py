@@ -42,7 +42,7 @@ def strip_non_ascii(string):
 
 q = input("Enter product code to Search the product")
 
-## flipkart scrapping ##
+## flipkart scraping ##
 fliplink = "https://www.flipkart.com/search?q="+q+"&otracker==search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off"
 r = requests.get(fliplink)
 soup = BeautifulSoup(r.content,"lxml")
@@ -52,8 +52,8 @@ if price:
     fp = strip_non_ascii(fp)
     print("Flipkart Price: "+fp)
 else:
-    print("Flipkart do not sell this product")
-##amazon scrapping ##
+    print("Flipkart does not sell this product")
+##amazon scraping ##
 amazonlink = "https://www.amazon.in/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords="+q+"&rh=i%3Aaps%2Ck%3A"+q
 #amazonlink = "https://www.amazon.in/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords="+"klv-40w562d&rh"+"=i%3Aaps%2Ck%3A"+"klv-40w562d"
 r = requests.get(amazonlink)
@@ -68,7 +68,7 @@ else:
     ap = -1;
 
 
-##sanpdeal scrapping##
+##snapdeal scraping##
 link = "https://www.snapdeal.com/search?keyword="+q+"&santizedKeyword=&catId=&categoryId=0&suggested=false&vertical=&noOfResults=1&clickSrc=go_header&lastKeyword=&prodCatId=&changeBackToAll=false&foundInAll=false&categoryIdSearched=&cityPageUrl=&categoryUrl=&url=&utmContent=&dealDetail=&sort=rlvncy"
 r = requests.get(link)
 soup = BeautifulSoup(r.content,"lxml")
